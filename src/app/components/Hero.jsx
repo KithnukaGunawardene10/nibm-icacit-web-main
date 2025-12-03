@@ -24,7 +24,7 @@ export default function Hero() {
         </h1>
 
         <p className="mt-4 text-lg sm:text-xl md:text-2xl text-gray-100">
-          March 26th, 2026 &bull; Colombo, Sri Lanka
+          February 26th, 2026 &bull; Colombo, Sri Lanka
         </p>
 
         <p className="mt-4 max-w-4xl text-sm font-semibold sm:text-base md:text-lg text-gray-200">
