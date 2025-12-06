@@ -19,6 +19,9 @@ export default function Navbar() {
       submenu: [
         { name: "Author Guidelines", href: "/submission/author-guidelines" },
         { name: "Submit Paper", href: "/submission/submit-paper" },
+        { name: "Camera Ready Paper Submission", href: "/submission/Camera-Ready-Paper-Submission" },
+        { name: "Presentation Submission Guidelines", href: "/submission/submit-paper" },
+        
       ],
     },
 

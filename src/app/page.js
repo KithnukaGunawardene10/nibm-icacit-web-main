@@ -89,7 +89,7 @@ export default function Page() {
     ICACIT 2026 is the 2nd International Conference on Advanced Computing and Information Technology, organized by the School of Computing and Engineering at NIBM. 
     This prominent conference gathers researchers, academics, industry professionals, and students to present original research, exchange ideas, and explore innovations in computing and information technology. 
     The event addresses key areas including Software Engineering, IT for Business, Cybersecurity, Networking, and Multimedia Systems, covering both theoretical insights and practical applications. 
-    Scheduled as a hybrid conference on <strong class="text-[#2295BA]">March 26th, 2026</strong>, ICACIT 2026 will feature keynote speeches by distinguished experts, peer-reviewed technical paper presentations, interactive workshops, and networking sessions, fostering collaboration across academia and industry. 
+    Scheduled as a hybrid conference on <strong class="text-[#2295BA]">February 26th, 2026</strong>, ICACIT 2026 will feature keynote speeches by distinguished experts, peer-reviewed technical paper presentations, interactive workshops, and networking sessions, fostering collaboration across academia and industry. 
     Attendees will gain valuable perspectives on emerging trends, best practices, and transformative technologies shaping the global computing landscape.
   `}
           tagline="Driving the Future Forward with Smart Solutions"
