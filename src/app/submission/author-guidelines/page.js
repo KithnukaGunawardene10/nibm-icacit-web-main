@@ -1,4 +1,4 @@
-// app/page.jsx   ←  ONLY THIS FILE (rest of your code stays 100% the same)
+// app/page.jsx ← ONLY THIS FILE
 "use client";
 
 import Navbar from "../../components/Navbar";
@@ -30,15 +30,17 @@ export default function AuthorGuidelines() {
         "Manuscript submission should be in both Microsoft Word and PDF document only in the given format.",
         "Authors are required to submit the ‘Author Declaration Form’ along with the extended abstract.",
         "Authors can submit a maximum of one (01) supplementary file in PDF format.",
-        // ← 3 buttons are now part of the content itself
+
+        // ← 3 BUTTONS — NOW WITH EMAIL AUTO-CONFIGURE
         <div key="buttons" className="mt-12 flex flex-col sm:flex-row gap-6 justify-center items-center">
           <a
-              href="/downloads/icacit2026_abstract_template.docx"
-              download
-              className="px-10 py-5 bg-[#2295BA] text-white font-bold text-lg rounded-xl hover:bg-[#1a7a99] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1 text-center min-w-[320px] whitespace-nowrap"
-            >
-              Extended Abstract Template
-            </a>
+            href="/downloads/icacit2026_abstract_template.docx"
+            download
+            className="px-10 py-5 bg-[#2295BA] text-white font-bold text-lg rounded-xl hover:bg-[#1a7a99] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1 text-center min-w-[320px] whitespace-nowrap"
+          >
+            Extended Abstract Template
+          </a>
+
           <a
             href="/downloads/Author-Declaration-Form-ICACIT2026.docx"
             download
@@ -46,13 +48,13 @@ export default function AuthorGuidelines() {
           >
             Author Declaration Form
           </a>
+
+          {/* ← THIS BUTTON NOW OPENS EMAIL CLIENT */}
           <a
-            href="https://cmt3.research.microsoft.com/ICACIT2026"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:computingresearch@nibm.lk?subject=Paper%20Submission%20-%20ICACIT%202026&body=Dear%20ICACIT%202026%20Team%2C%0A%0AI%20would%20like%20to%20submit%20my%20paper%20for%20review.%0A%0ATitle%3A%20%0AAuthors%3A%20%0ATrack%3A%20%0A%0APlease%20find%20attached%3A%0A-%20Extended%20Abstract%20(Word%20%2B%20PDF)%0A-%20Author%20Declaration%20Form%0A-%20Supplementary%20File%20(if%20any)%0A%0AThank%20you%20and%20best%20regards%2C%0A%5BYour%20Name%5D"
             className="px-10 py-5 bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold text-lg rounded-xl hover:from-orange-700 hover:to-red-700 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1 text-center min-w-[280px]"
           >
-            Submit Online (CMT)
+            Submit Your Paper
           </a>
         </div>,
       ],
@@ -73,6 +75,7 @@ export default function AuthorGuidelines() {
           height="30vh"
           blackOpacity="bg-black/50"
         />
+
         <LeftRightParaSection
           firstTitle="Conference Overview"
           firstDescription={`
@@ -80,7 +83,7 @@ export default function AuthorGuidelines() {
             All submissions and presentations should align with the conference guidelines to ensure clarity, academic rigor, and consistency across all contributions.
           `}
         />
-        {/* Your existing ExpandableSection works perfectly now */}
+
         <ExpandableSection items={authorGuidelines} />
       </main>
 
