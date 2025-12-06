@@ -68,7 +68,7 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-extrabold text-white leading-tight">
           The International Conference on
           <br />
           <span className="text-[#2295BA] drop-shadow-2xl">

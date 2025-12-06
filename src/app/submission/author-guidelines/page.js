@@ -80,7 +80,7 @@ export default function AuthorGuidelines() {
           firstTitle="Conference Overview"
           firstDescription={`
             ICACIT 2026 provides a platform for researchers, practitioners, and students to share knowledge, exchange ideas, and explore recent advancements in computing and technology.
-            All submissions and presentations should align with the conference guidelines to ensure clarity, academic rigor, and consistency across all contributions.
+            All submissions and presentations should align with the conference guidelines to ensure clarity, academic rigor, and consistency across all contributions. 
           `}
         />
 
