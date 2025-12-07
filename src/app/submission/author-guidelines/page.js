@@ -25,11 +25,8 @@ export default function AuthorGuidelines() {
     {
       title: "Paper Submission",
       content: [
-        "All paper submissions are through CMT. If you are a first time user of CMT, create an account using your official email.",
-        "Choose the most appropriate track.",
-        "Manuscript submission should be in both Microsoft Word and PDF document only in the given format.",
         "Authors are required to submit the ‘Author Declaration Form’ along with the extended abstract.",
-        "Authors can submit a maximum of one (01) supplementary file in PDF format.",
+        "Authors can submit a maximum of one (01) supplementary file in PDF format and Word format of the documents.",
 
         // ← 3 BUTTONS — NOW WITH EMAIL AUTO-CONFIGURE
         <div key="buttons" className="mt-12 flex flex-col sm:flex-row gap-6 justify-center items-center">
