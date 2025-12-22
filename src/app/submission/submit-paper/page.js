@@ -38,7 +38,7 @@ export default function SubmitPaper() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
           <a
-            href="https://cmt3.research.microsoft.com/"
+            href="https://cmt3.research.microsoft.com/NIBMICACIT2026"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-[#2295BA] hover:bg-[#197a95] text-white font-semibold px-6 py-2 text-lg shadow-md transition"
