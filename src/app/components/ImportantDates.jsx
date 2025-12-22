@@ -1,6 +1,5 @@
 // app/components/ImportantDates.jsx
 "use client";
-
 import { useState } from "react";
 
 const dates = [
@@ -12,7 +11,9 @@ const dates = [
   },
   {
     event: "Deadline for Abstract Submission / Extended Abstract Submission",
-    date: "20th December 2025",
+    originalDate: "20th December 2025", 
+    date: "05th January 2026",          
+    isExtended: true,
     description:
       "Final deadline for all abstract submissions. No further extensions will be granted. All submissions undergo initial screening for relevance and quality.",
   },
@@ -49,7 +50,7 @@ const dates = [
   },
 ];
 
-export default function ImportantDates({ currentStageIndex = 0 }) {
+export default function ImportantDates({ currentStageIndex = 1 }) { // Default to index 1 (Deadline)
   const [selectedIndex, setSelectedIndex] = useState(currentStageIndex);
 
   return (
@@ -72,7 +73,6 @@ export default function ImportantDates({ currentStageIndex = 0 }) {
         <div className="relative">
           {/* Vertical Line */}
           <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#2295BA] to-gray-300 hidden lg:block" />
-
           <div className="space-y-8">
             {dates.map((item, index) => (
               <div
@@ -110,15 +110,33 @@ export default function ImportantDates({ currentStageIndex = 0 }) {
                   <h3 className="font-bold text-[19px] text-gray-900">
                     {item.event}
                   </h3>
-                  <p className={`mt-1 font-medium ${selectedIndex === index ? "text-white/90" : "text-[#2295BA]"}`}>
-                    {item.date}
-                  </p>
+
+                  <div className="mt-1 font-medium">
+                    {item.originalDate ? (
+                      <div className="flex flex-col">
+                        <span className="line-through text-gray-500">
+                          {item.originalDate}
+                        </span>
+                        <span className="text-[#FFFFFF] font-semibold">
+                          {item.date}
+                        </span>
+                        {item.isExtended && (
+                          <span className="inline-block mt-1 px-3 py-1 text-xs font-bold text-black bg-[#76F527] rounded-full w-fit">
+                            DATE EXTENDED
+                          </span>
+                        )}
+                      </div>
+                    ) : (
+                      <span className="text-[#2295BA]">{item.date}</span>
+                    )}
+                  </div>
 
                   {index === currentStageIndex && (
                     <span className="inline-block mt-3 px-3 py-1 text-xs font-bold text-black bg-[#76F527] rounded-full">
                       CURRENT STAGE
                     </span>
                   )}
+
                   {item.isFinale && (
                     <span className="inline-block mt-3 px-4 py-2 text-sm font-bold text-orange-800 bg-orange-200 rounded-full">
                       CONFERENCE DAY
@@ -136,15 +154,31 @@ export default function ImportantDates({ currentStageIndex = 0 }) {
             <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
               {dates[selectedIndex].event}
             </h3>
-            <p className="mt-3 text-xl font-bold text-[#2295BA]">
-              {dates[selectedIndex].date}
-            </p>
+
+            <div className="mt-3 text-xl font-bold text-[#2295BA]">
+              {dates[selectedIndex].originalDate ? (
+                <div className="flex flex-col">
+                  <span className="line-through text-gray-500 text-lg">
+                    {dates[selectedIndex].originalDate}
+                  </span>
+                  <span>{dates[selectedIndex].date}</span>
+                  {dates[selectedIndex].isExtended && (
+                    <span className="inline-block mt-3 px-4 py-2 text-sm font-bold text-white bg-[#2295BA] rounded-full w-fit">
+                      DATE EXTENDED
+                    </span>
+                  )}
+                </div>
+              ) : (
+                dates[selectedIndex].date
+              )}
+            </div>
 
             {selectedIndex === currentStageIndex && (
               <span className="inline-block mt-4 px-4 py-2 text-sm font-bold text-white bg-[#2295BA] rounded-full">
-                Next Milestone
+                Current Milestone
               </span>
             )}
+
             {dates[selectedIndex].isFinale && (
               <span className="inline-block mt-4 px-6 py-3 text-lg font-bold text-white bg-gradient-to-r from-orange-500 to-red-600 rounded-full shadow-lg">
                 ICACIT Conference '26
