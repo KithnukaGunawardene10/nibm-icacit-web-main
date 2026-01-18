@@ -11,27 +11,27 @@ const dates = [
   },
   {
     event: "Deadline for Abstract Submission / Extended Abstract Submission",
-    originalDate: "20th December 2025", 
-    date: "05th January 2026",          
+    
+    date: "05th January 2026",
     isExtended: true,
     description:
       "Final deadline for all abstract submissions. No further extensions will be granted. All submissions undergo initial screening for relevance and quality.",
   },
   {
     event: "Notification of Acceptance",
-    date: "20th January 2026",
+    date: "30th January 2026",
     description:
       "Authors will be notified about the acceptance of their abstracts. Accepted authors proceed to full paper submission.",
   },
   {
     event: "Submission of Camera-Ready Papers",
-    date: "30th January 2026",
+    date: "10th February 2026",
     description:
       "Deadline for submitting final camera-ready versions of accepted papers following reviewer feedback and formatting guidelines.",
   },
   {
     event: "Commencement of Registration for Conference",
-    date: "10th February 2026",
+    date: "15th February 2026",
     description:
       "Early bird registration opens. Secure your spot and benefit from reduced fees!",
   },
@@ -50,7 +50,7 @@ const dates = [
   },
 ];
 
-export default function ImportantDates({ currentStageIndex = 1 }) { // Default to index 1 (Deadline)
+export default function ImportantDates({ currentStageIndex = 2 }) {
   const [selectedIndex, setSelectedIndex] = useState(currentStageIndex);
 
   return (
@@ -69,10 +69,11 @@ export default function ImportantDates({ currentStageIndex = 1 }) { // Default t
       </div>
 
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-        {/* Timeline */}
+        {/* Timeline - Left Side */}
         <div className="relative">
-          {/* Vertical Line */}
+          {/* Vertical connecting line (desktop only) */}
           <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#2295BA] to-gray-300 hidden lg:block" />
+
           <div className="space-y-8">
             {dates.map((item, index) => (
               <div
@@ -80,7 +81,7 @@ export default function ImportantDates({ currentStageIndex = 1 }) { // Default t
                 onClick={() => setSelectedIndex(index)}
                 className="flex items-start group cursor-pointer"
               >
-                {/* Circle */}
+                {/* Number Circle */}
                 <div
                   className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold transition-all duration-300 z-10 shadow-md
                     ${
@@ -96,7 +97,7 @@ export default function ImportantDates({ currentStageIndex = 1 }) { // Default t
                   {index + 1}
                 </div>
 
-                {/* Card */}
+                {/* Timeline Item Card */}
                 <div
                   className={`ml-5 flex-1 p-5 rounded-xl transition-all duration-300 border
                     ${
@@ -107,30 +108,37 @@ export default function ImportantDates({ currentStageIndex = 1 }) { // Default t
                         : "bg-white border-gray-200 shadow hover:shadow-lg hover:border-[#2295BA]/50"
                     }`}
                 >
-                  <h3 className="font-bold text-[19px] text-gray-900">
+                  <h3 className="font-bold text-[19px] text-gray-900 group-hover:text-white transition-colors">
                     {item.event}
                   </h3>
 
                   <div className="mt-1 font-medium">
                     {item.originalDate ? (
                       <div className="flex flex-col">
-                        <span className="line-through text-gray-500">
+                        <span className="line-through text-gray-400 text-sm">
                           {item.originalDate}
                         </span>
-                        <span className="text-[#FFFFFF] font-semibold">
+                        <span
+                          className={`font-semibold ${
+                            selectedIndex === index ? "text-white" : "text-[#2295BA]"
+                          }`}
+                        >
                           {item.date}
                         </span>
-                        {item.isExtended && (
-                          <span className="inline-block mt-1 px-3 py-1 text-xs font-bold text-black bg-[#76F527] rounded-full w-fit">
-                            DATE EXTENDED
-                          </span>
-                        )}
+                        
                       </div>
                     ) : (
-                      <span className="text-[#2295BA]">{item.date}</span>
+                      <span
+                        className={`font-semibold ${
+                          selectedIndex === index ? "text-white" : "text-[#2295BA]"
+                        }`}
+                      >
+                        {item.date}
+                      </span>
                     )}
                   </div>
 
+                  {/* Badges */}
                   {index === currentStageIndex && (
                     <span className="inline-block mt-3 px-3 py-1 text-xs font-bold text-black bg-[#76F527] rounded-full">
                       CURRENT STAGE
@@ -148,20 +156,20 @@ export default function ImportantDates({ currentStageIndex = 1 }) { // Default t
           </div>
         </div>
 
-        {/* Details Panel */}
+        {/* Details Panel - Right Side (sticky on desktop) */}
         <div className="lg:sticky lg:top-8">
           <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
             <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
               {dates[selectedIndex].event}
             </h3>
 
-            <div className="mt-3 text-xl font-bold text-[#2295BA]">
+            <div className="mt-4 text-xl font-bold text-[#2295BA]">
               {dates[selectedIndex].originalDate ? (
                 <div className="flex flex-col">
                   <span className="line-through text-gray-500 text-lg">
                     {dates[selectedIndex].originalDate}
                   </span>
-                  <span>{dates[selectedIndex].date}</span>
+                  <span className="mt-1">{dates[selectedIndex].date}</span>
                   {dates[selectedIndex].isExtended && (
                     <span className="inline-block mt-3 px-4 py-2 text-sm font-bold text-white bg-[#2295BA] rounded-full w-fit">
                       DATE EXTENDED
@@ -169,7 +177,7 @@ export default function ImportantDates({ currentStageIndex = 1 }) { // Default t
                   )}
                 </div>
               ) : (
-                dates[selectedIndex].date
+                <div className="mt-1">{dates[selectedIndex].date}</div>
               )}
             </div>
 

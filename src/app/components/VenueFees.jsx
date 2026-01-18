@@ -5,9 +5,10 @@ export default function VenueFees() {
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
       <div className="space-y-6">
         <h3 className="text-lg sm:text-xl font-semibold text-black">
-          Venue & Fees 2024
+          Registrations will be opened from 15th February 2026
         </h3>
 
+        {/* 
         <p className="text-gray-700 leading-relaxed text-sm sm:text-base text-justify">
           The conference will be held at the National Institute of Business
           Management (NIBM), Colombo 07. Please refer to the fee structure below
@@ -26,7 +27,6 @@ export default function VenueFees() {
                 </th>
               </tr>
             </thead>
-
             <tbody>
               <tr>
                 <td className="p-3 border text-black border-gray-300">Local</td>
@@ -45,6 +45,7 @@ export default function VenueFees() {
             </tbody>
           </table>
         </div>
+        */}
       </div>
     </section>
   );
