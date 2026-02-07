@@ -69,7 +69,7 @@ export default function AuthorGuidelines() {
         // ← 3 BUTTONS — NOW WITH EMAIL AUTO-CONFIGURE
         <div key="buttons" className="mt-12 flex flex-col sm:flex-row gap-6 justify-center items-center">
           <a
-            href="/downloads/icacit2026_abstract_template.docx"
+            href="/downloads/Extended-abstract-template-ICACIT2026.docx"
             download
             className="px-10 py-5 bg-[#2295BA] text-white font-bold text-lg rounded-xl hover:bg-[#1a7a99] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1 text-center min-w-[320px] whitespace-nowrap"
           >
