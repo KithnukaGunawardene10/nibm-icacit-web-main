@@ -70,12 +70,17 @@ export default function AuthorGuidelines() {
         <div key="buttons" className="mt-12 flex flex-col sm:flex-row gap-6 justify-center items-center">
           <a
             href="/downloads/Extended-abstract-template-ICACIT2026.docx"
-            download
             className="px-10 py-5 bg-[#2295BA] text-white font-bold text-lg rounded-xl hover:bg-[#1a7a99] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1 text-center min-w-[320px] whitespace-nowrap"
           >
             Extended Abstract Template
           </a>
-
+          <a
+            href="/downloads/Author-Declaration-Form-ICACIT2026.docx"
+            download
+            className="px-10 py-5 bg-[#d71b23] text-white font-bold text-lg rounded-xl hover:bg-[#d71b23] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1 text-center min-w-[320px] whitespace-nowrap"
+          >
+             Abstract Template
+          </a>
           <a
             href="/downloads/Author-Declaration-Form-ICACIT2026.docx"
             download
