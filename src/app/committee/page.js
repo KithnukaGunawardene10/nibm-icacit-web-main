@@ -51,7 +51,7 @@ export default function Committee() {
   ];
 
   const advisory = [
-    { name: "Ms. Gangani Wickramasinghe", position: "Director, SOCE, NIBM", image: "/images/GC.jpg" },
+    { name: "Mr. Heshan Karunarathne", position: "Director, SOCE, NIBM", image: "/images/HK.png" },
     { name: "Dr. Thisara Weerasinghe", position: "Head, Computer Science, SOCE, NIBM", image: "/images/TW.jpg" },
     { name: "Dr. Rushan Abeygunawardana", position: "Senior Lecturer, University of Colombo", image: "/images/RA.png" },
   ];
