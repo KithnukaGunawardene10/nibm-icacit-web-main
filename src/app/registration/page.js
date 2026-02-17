@@ -31,41 +31,13 @@ export default function Registration() {
         <VenueFees />
         <PaymentDetails />
 
-        {/*
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-[#2295BA] hover:bg-[#197a95] text-white font-semibold px-6 py-2 text-lg shadow-md transition"
-          >
-            Pay Via Online Payment Gateway
-          </a>
-        </div>
+        
+        
 
-        <FullWidthParaSection
-          title="Registration"
-          description={`
-            Online registration is mandatory for all authors and participants of ICACIT 2026. At least one author of each accepted paper must complete the registration by <strong>November 6th, 2025</strong> and upload a clear scanned copy or photo of the bank slip or online payment notice (including email confirmations from payment gateways or online transfers). <br /><br />
-            Student authors or co-authors are required to upload valid proof of studentship, such as a scanned copy of a student ID or other official documentation.
-            A registration confirmation email will be issued once the conference registration committee verifies the payment document and studentship proof. <br /><br />
-            Authors must upload the scanned payment receipt or online notice in the registration form. Please follow the required file name format for uploads: <br />
-            <strong>File Name Format:</strong> ICACIT2026_PaperID_LastName.pdf <br /><br />
-            Please click the button below to complete your registration through the official form.
-          `}
-        />
+        
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-[#2295BA] hover:bg-[#197a95] text-white font-semibold px-6 py-2 text-lg shadow-md transition"
-          >
-            Register Now
-          </a>
-        </div>
-        */}
+       
+      
       </main>
 
       <Footer />
