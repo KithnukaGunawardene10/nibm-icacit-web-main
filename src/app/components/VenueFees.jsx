@@ -29,24 +29,25 @@ export default function VenueFees() {
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               <tr className="hover:bg-gray-50">
-                <td className="px-6 py-4 whitespace-nowrap text-gray-900">NIBM Students</td>
+                <td className="px-6 py-4 whitespace-nowrap text-gray-900">Students from National Institute of Business Management(NIBM)
+</td>
                 <td className="px-6 py-4 whitespace-nowrap text-gray-900">LKR 1,000.00</td>
               </tr>
               <tr className="hover:bg-gray-50 bg-gray-50">
                 <td className="px-6 py-4 whitespace-nowrap text-gray-900">
-                  Local Students (Other Institutions)
+                  Local presenters/participants (Other Universities/Institutions)
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-gray-900">LKR 1,500.00</td>
               </tr>
               <tr className="hover:bg-gray-50">
-                <td className="px-6 py-4 whitespace-nowrap text-gray-900">International Students</td>
-                <td className="px-6 py-4 whitespace-nowrap text-gray-900">16 USD</td>
+                <td className="px-6 py-4 whitespace-nowrap text-gray-900">Presenters/participants from another organization or Professional Body</td>
+                <td className="px-6 py-4 whitespace-nowrap text-gray-900">LKR 5,000.00</td>
               </tr>
               <tr className="hover:bg-gray-50 bg-gray-50">
                 <td className="px-6 py-4 whitespace-nowrap text-gray-900">
-                  Professionals / Industry Participants
+                  Presenters/participants International students
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-gray-900">LKR 5,000.00</td>
+                <td className="px-6 py-4 whitespace-nowrap text-gray-900">16 USD</td>
               </tr>
             </tbody>
           </table>
@@ -81,7 +82,7 @@ export default function VenueFees() {
         <div className="bg-red-50 border-l-4 border-red-500 p-5 rounded-r-lg">
           <p className="text-red-800 font-medium">
             DEADLINE: Please submit the registration form along with your payment slip/proof
-            <strong> on or before Friday, 20th February 2026</strong>.
+            <strong> on or before Monday, 23rd February 2026</strong>.
           </p>
         </div>
 
