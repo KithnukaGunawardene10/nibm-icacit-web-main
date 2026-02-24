@@ -1,5 +1,6 @@
 // app/components/ImportantDates.jsx
 "use client";
+
 import { useState } from "react";
 
 const dates = [
@@ -11,7 +12,6 @@ const dates = [
   },
   {
     event: "Deadline for Abstract Submission / Extended Abstract Submission",
-    
     date: "05th January 2026",
     isExtended: true,
     description:
@@ -45,13 +45,16 @@ const dates = [
     event: "ICACIT Conference '26",
     date: "26th February 2026",
     description:
-      "The main event! Join us in Colombo, Sri Lanka for keynote speeches, paper presentations, workshops, and networking with global leaders in computing and information technology.",
+      "The main event! Join us at Auditorium, National Institute of Business Management, Sri Lanka for keynote speeches, paper presentations, networking with leaders in computing and information technology.",
     isFinale: true,
   },
 ];
 
-export default function ImportantDates({ currentStageIndex = 2 }) {
-  const [selectedIndex, setSelectedIndex] = useState(currentStageIndex);
+export default function ImportantDates() {
+  // We force the right panel to always show the conference day (index 6)
+  const forcedIndex = 6; // ← this makes the big right card show ICACIT Conference '26
+
+  const [selectedIndex, setSelectedIndex] = useState(forcedIndex);
 
   return (
     <section
@@ -69,9 +72,8 @@ export default function ImportantDates({ currentStageIndex = 2 }) {
       </div>
 
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-        {/* Timeline - Left Side */}
+        {/* Left - Timeline (clickable) */}
         <div className="relative">
-          {/* Vertical connecting line (desktop only) */}
           <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#2295BA] to-gray-300 hidden lg:block" />
 
           <div className="space-y-8">
@@ -81,13 +83,12 @@ export default function ImportantDates({ currentStageIndex = 2 }) {
                 onClick={() => setSelectedIndex(index)}
                 className="flex items-start group cursor-pointer"
               >
-                {/* Number Circle */}
                 <div
                   className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold transition-all duration-300 z-10 shadow-md
                     ${
                       selectedIndex === index
                         ? "bg-[#2295BA] text-white scale-110"
-                        : index === currentStageIndex
+                        : index === forcedIndex
                         ? "bg-[#2295BA] text-white ring-4 ring-[#2295BA]/30"
                         : item.isFinale
                         ? "bg-orange-500 text-white"
@@ -97,7 +98,6 @@ export default function ImportantDates({ currentStageIndex = 2 }) {
                   {index + 1}
                 </div>
 
-                {/* Timeline Item Card */}
                 <div
                   className={`ml-5 flex-1 p-5 rounded-xl transition-all duration-300 border
                     ${
@@ -125,7 +125,6 @@ export default function ImportantDates({ currentStageIndex = 2 }) {
                         >
                           {item.date}
                         </span>
-                        
                       </div>
                     ) : (
                       <span
@@ -138,8 +137,7 @@ export default function ImportantDates({ currentStageIndex = 2 }) {
                     )}
                   </div>
 
-                  {/* Badges */}
-                  {index === currentStageIndex && (
+                  {index === forcedIndex && (
                     <span className="inline-block mt-3 px-3 py-1 text-xs font-bold text-black bg-[#76F527] rounded-full">
                       CURRENT STAGE
                     </span>
@@ -156,45 +154,23 @@ export default function ImportantDates({ currentStageIndex = 2 }) {
           </div>
         </div>
 
-        {/* Details Panel - Right Side (sticky on desktop) */}
-        <div className="lg:sticky lg:top-8">
+        {/* Right - Details Panel (sticky on desktop, always shows conference) */}
+        <div className="lg:sticky lg:top-8 self-start">
           <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
             <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
-              {dates[selectedIndex].event}
+              {dates[forcedIndex].event}
             </h3>
 
             <div className="mt-4 text-xl font-bold text-[#2295BA]">
-              {dates[selectedIndex].originalDate ? (
-                <div className="flex flex-col">
-                  <span className="line-through text-gray-500 text-lg">
-                    {dates[selectedIndex].originalDate}
-                  </span>
-                  <span className="mt-1">{dates[selectedIndex].date}</span>
-                  {dates[selectedIndex].isExtended && (
-                    <span className="inline-block mt-3 px-4 py-2 text-sm font-bold text-white bg-[#2295BA] rounded-full w-fit">
-                      DATE EXTENDED
-                    </span>
-                  )}
-                </div>
-              ) : (
-                <div className="mt-1">{dates[selectedIndex].date}</div>
-              )}
+              {dates[forcedIndex].date}
             </div>
 
-            {selectedIndex === currentStageIndex && (
-              <span className="inline-block mt-4 px-4 py-2 text-sm font-bold text-white bg-[#2295BA] rounded-full">
-                Current Milestone
-              </span>
-            )}
-
-            {dates[selectedIndex].isFinale && (
-              <span className="inline-block mt-4 px-6 py-3 text-lg font-bold text-white bg-gradient-to-r from-orange-500 to-red-600 rounded-full shadow-lg">
-                ICACIT Conference '26
-              </span>
-            )}
+            <span className="inline-block mt-4 px-6 py-3 text-lg font-bold text-white bg-gradient-to-r from-orange-500 to-red-600 rounded-full shadow-lg">
+              ICACIT Conference '26
+            </span>
 
             <p className="mt-6 text-[17px] leading-relaxed text-gray-700 text-justify">
-              {dates[selectedIndex].description}
+              {dates[forcedIndex].description}
             </p>
           </div>
         </div>
