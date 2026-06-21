@@ -76,7 +76,7 @@ export default function Hero() {
           </span>
         </h1>
         <p className="mt-6 text-xl md:text-2xl text-gray-100 font-medium">
-          February 26th, 2026 • Colombo, Sri Lanka
+          February 26th, 2026 • Colombo, Sri Lanka.
         </p>
 
         {/* MASSIVE COUNTDOWN — NO ERROR */}
