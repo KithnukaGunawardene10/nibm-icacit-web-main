@@ -4,6 +4,9 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import HalfCoverImage from "../components/HalfCoverImage";
 import JournalViewer from "../components/JournalViewer";
+import JournalCountdown from "../components/JournalCountdown";
+import JournalGuidelines from "../components/JournalGuidelines"; // new
+import JournalSubmission from "../components/JournalSubmission"; // new
 
 export default function Journal() {
   return (
@@ -20,6 +23,18 @@ export default function Journal() {
           height="30vh"
           blackOpacity="bg-black/50"
         />
+
+        <JournalCountdown
+          targetDate="2026-07-20T23:59:59"
+          title="Journal Submission Deadline"
+        />
+
+        <JournalSubmission
+          cmtUrl="https://cmt3.research.microsoft.com/IJACIT2026"
+          buttonText="Submit via CMT"
+        />
+
+        <JournalGuidelines />
 
         <JournalViewer />
       </main>
