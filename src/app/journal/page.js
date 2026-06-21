@@ -26,7 +26,7 @@ export default function Journal() {
 
         <JournalCountdown
           targetDate="2026-07-20T23:59:59"
-          title="Journal Submission Deadline"
+          title="Full Paper Submission Deadline"
         />
 
         <JournalSubmission
