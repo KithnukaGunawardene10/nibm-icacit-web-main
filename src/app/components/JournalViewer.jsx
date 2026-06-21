@@ -1,4 +1,3 @@
-// components/JournalViewer.jsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -25,7 +24,7 @@ export default function JournalViewer() {
   );
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [openYear, setOpenYear] = useState(journalData[0].year); // default open first year
+  const [openYear, setOpenYear] = useState(journalData[0].year);
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -38,6 +37,11 @@ export default function JournalViewer() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      {/* Title added here */}
+      <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-8">
+        Published Journal Issues
+      </h2>
+
       <div className="flex flex-col md:flex-row gap-6">
         {/* Mobile toggle button */}
         <button
