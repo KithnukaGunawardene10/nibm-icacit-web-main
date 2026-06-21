@@ -1,26 +1,62 @@
 "use client";
 
 export default function JournalGuidelines() {
+  const tracks = [
+    "Human–Technology Interaction & Digital Workplaces",
+    "Technology Education & Management",
+    "Gen AI & Derivative Systems",
+    "Software Engineering & Development Practices",
+    "Cybersecurity Governance, Risk, & Compliance",
+    "SecOps & Security Engineering",
+    "Data Science & Big Data Analytics",
+    "Computer Vision & Image Processing",
+    "Transmedia Storytelling in Modern Cinema",
+    "Virtual Production Vs. Green Screen Environments",
+  ];
+
   return (
     <section className="py-8 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center">
-          Journal Submission Guidelines
+          Full Paper Submission Guidelines
         </h2>
 
         <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6 shadow-sm space-y-6 text-gray-700">
+          {/* Intro paragraph – without inline tracks */}
           <p>
             The International Journal on Advanced Computing and Information
             Technology (IJACIT) 2026 presents an invaluable latest research and
             innovative ideas for the global advancement of knowledge. The IJACIT
             is published by the School of Computing and Engineering - NIBM, and
-            it focuses on key tracks including Software Engineering, Information
-            Technology for Business, Ethical Hacking and Network Security, and
-            Multimedia within the field of computing. All submissions undergo a
-            rigorous blind review process by a panel of experienced reviewers
-            from both local and international universities.
+            it focuses on key tracks within the field of computing. All
+            submissions undergo a rigorous blind review process by a panel of
+            experienced reviewers from both local and international
+            universities.
           </p>
 
+          {/* Enhanced tracks section – more professional and focused */}
+          <div>
+            <div className="flex items-center gap-2 mb-3">
+              <h3 className="text-xl font-bold text-gray-900">
+                Journal Tracks
+              </h3>
+              <div className="flex-1 h-0.5 bg-[#2295BA]/30"></div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {tracks.map((track, index) => (
+                <div
+                  key={index}
+                  className="bg-white border-l-4 border-[#2295BA] rounded-r-lg shadow-xs p-3 flex items-center gap-2"
+                >
+                  <span className="text-gray-800 font-medium text-sm sm:text-base">
+                    {track}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Contributors requirements – unchanged */}
           <div>
             <p className="font-semibold">
               Contributors are requested to carefully adhere to the following
@@ -44,6 +80,7 @@ export default function JournalGuidelines() {
             </ul>
           </div>
 
+          {/* Categories of manuscripts – unchanged */}
           <div>
             <h3 className="text-lg font-semibold text-gray-900">
               Categories of manuscripts
@@ -83,6 +120,7 @@ export default function JournalGuidelines() {
             </div>
           </div>
 
+          {/* Structure of Manuscripts – unchanged */}
           <div>
             <h3 className="text-lg font-semibold text-gray-900">
               Structure of Manuscripts
