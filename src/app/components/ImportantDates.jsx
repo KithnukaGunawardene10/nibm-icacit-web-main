@@ -1,178 +1,117 @@
 // app/components/ImportantDates.jsx
 "use client";
 
-import { useState } from "react";
-
 const dates = [
   {
-    event: "Call for Abstract Submission / Extended Abstract Submission",
-    date: "10th November 2025",
+    event: "Submission Opens",
+    date: "1st October 2026",
     description:
-      "The submission portal opens! Authors are invited to submit extended abstracts (2–4 pages) outlining original research or innovative applications in any of the conference tracks.",
-  },
-  {
-    event: "Deadline for Abstract Submission / Extended Abstract Submission",
-    date: "05th January 2026",
-    isExtended: true,
-    description:
-      "Final deadline for all abstract submissions. No further extensions will be granted. All submissions undergo initial screening for relevance and quality.",
+      "The Microsoft CMT submission portal opens for ICACIT 2027. Authors are invited to submit abstracts and extended abstracts through the conference submission system.",
   },
   {
     event: "Notification of Acceptance",
-    date: "30th January 2026",
+    date: "5th January 2027",
     description:
-      "Authors will be notified about the acceptance of their abstracts. Accepted authors proceed to full paper submission.",
+      "Authors will be notified of the outcome of the review process. Accepted papers proceed to the camera-ready stage.",
   },
   {
-    event: "Submission of Camera-Ready Papers",
-    date: "10th February 2026",
+    event: "Camera-Ready Submission",
+    date: "15th January 2027",
     description:
-      "Deadline for submitting final camera-ready versions of accepted papers following reviewer feedback and formatting guidelines.",
+      "Accepted authors must submit the final camera-ready version of their paper, prepared according to the ICACIT 2027 guidelines.",
   },
   {
-    event: "Commencement of Registration for Conference",
-    date: "15th February 2026",
+    event: "Registration Deadline",
+    date: "5th February 2027",
     description:
-      "Early bird registration opens. Secure your spot and benefit from reduced fees!",
+      "Final date to complete conference registration. At least one author of each accepted paper must register by this date for the paper to be included in the proceedings.",
   },
   {
-    event: "Deadline for Registration for Conference",
-    date: "20th February 2026",
+    event: "ICACIT Conference 2027",
+    date: "12th February 2027",
     description:
-      "Final registration deadline. After this date, on-site registration may be available at higher rates.",
-  },
-  {
-    event: "ICACIT Conference '26",
-    date: "26th February 2026",
-    description:
-      "The main event! Join us at Auditorium, National Institute of Business Management, Sri Lanka for keynote speeches, paper presentations, networking with leaders in computing and information technology.",
-    isFinale: true,
+      "The conference will be held at the National Institute of Business Management (NIBM), Colombo, Sri Lanka. The programme includes keynote addresses, paper presentations, poster sessions, and networking.",
   },
 ];
 
 export default function ImportantDates() {
-  // We force the right panel to always show the conference day (index 6)
-  const forcedIndex = 6; // ← this makes the big right card show ICACIT Conference '26
-
-  const [selectedIndex, setSelectedIndex] = useState(forcedIndex);
-
   return (
-    <section
-      id="important-dates"
-      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 bg-gradient-to-b from-white to-gray-50"
-    >
-      {/* Title */}
-      <div className="text-center lg:text-left max-w-5xl mx-auto mb-16">
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">
-          Important Dates
-        </h2>
-        <p className="mt-4 text-[17px] leading-relaxed text-gray-700 text-justify">
-          Stay on track with ICACIT 2026! Below are the key milestones from submission to the grand conference day. Click any stage to learn more.
-        </p>
-      </div>
-
-      <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-        {/* Left - Timeline (clickable) */}
-        <div className="relative">
-          <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#2295BA] to-gray-300 hidden lg:block" />
-
-          <div className="space-y-8">
-            {dates.map((item, index) => (
-              <div
-                key={index}
-                onClick={() => setSelectedIndex(index)}
-                className="flex items-start group cursor-pointer"
-              >
-                <div
-                  className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold transition-all duration-300 z-10 shadow-md
-                    ${
-                      selectedIndex === index
-                        ? "bg-[#2295BA] text-white scale-110"
-                        : index === forcedIndex
-                        ? "bg-[#2295BA] text-white ring-4 ring-[#2295BA]/30"
-                        : item.isFinale
-                        ? "bg-orange-500 text-white"
-                        : "bg-white text-gray-700 border-2 border-gray-300"
-                    }`}
-                >
-                  {index + 1}
-                </div>
-
-                <div
-                  className={`ml-5 flex-1 p-5 rounded-xl transition-all duration-300 border
-                    ${
-                      selectedIndex === index
-                        ? "bg-[#2295BA] text-white shadow-xl border-[#2295BA]"
-                        : item.isFinale
-                        ? "bg-orange-50 border-orange-300 shadow-lg"
-                        : "bg-white border-gray-200 shadow hover:shadow-lg hover:border-[#2295BA]/50"
-                    }`}
-                >
-                  <h3 className="font-bold text-[19px] text-gray-900 group-hover:text-white transition-colors">
-                    {item.event}
-                  </h3>
-
-                  <div className="mt-1 font-medium">
-                    {item.originalDate ? (
-                      <div className="flex flex-col">
-                        <span className="line-through text-gray-400 text-sm">
-                          {item.originalDate}
-                        </span>
-                        <span
-                          className={`font-semibold ${
-                            selectedIndex === index ? "text-white" : "text-[#2295BA]"
-                          }`}
-                        >
-                          {item.date}
-                        </span>
-                      </div>
-                    ) : (
-                      <span
-                        className={`font-semibold ${
-                          selectedIndex === index ? "text-white" : "text-[#2295BA]"
-                        }`}
-                      >
-                        {item.date}
-                      </span>
-                    )}
-                  </div>
-
-                  {index === forcedIndex && (
-                    <span className="inline-block mt-3 px-3 py-1 text-xs font-bold text-black bg-[#76F527] rounded-full">
-                      CURRENT STAGE
-                    </span>
-                  )}
-
-                  {item.isFinale && (
-                    <span className="inline-block mt-3 px-4 py-2 text-sm font-bold text-orange-800 bg-orange-200 rounded-full">
-                      CONFERENCE DAY
-                    </span>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
+    <section id="important-dates" className="bg-white border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+        {/* Title */}
+        <div className="mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+            Important Dates
+          </h2>
+          <div className="mt-4 w-20 h-1 bg-[#2295BA]" />
+          <p className="mt-6 text-[17px] leading-relaxed text-gray-700 max-w-5xl text-justify">
+            The following dates apply to ICACIT 2027. Authors and participants
+            are advised to note these deadlines carefully and plan their
+            submissions and travel accordingly.
+          </p>
         </div>
 
-        {/* Right - Details Panel (sticky on desktop, always shows conference) */}
-        <div className="lg:sticky lg:top-8 self-start">
-          <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
-              {dates[forcedIndex].event}
-            </h3>
-
-            <div className="mt-4 text-xl font-bold text-[#2295BA]">
-              {dates[forcedIndex].date}
+        {/* Mobile — stacked cards */}
+        <div className="lg:hidden space-y-6">
+          {dates.map((item, index) => (
+            <div
+              key={index}
+              className="border border-gray-300 border-l-4 border-l-[#2295BA] p-5"
+            >
+              <p className="text-[14px] font-semibold text-[#2295BA] uppercase tracking-wider">
+                {item.date}
+              </p>
+              <h3 className="mt-2 text-[17px] font-bold text-gray-900 leading-snug">
+                {item.event}
+              </h3>
+              <p className="mt-3 text-[15px] leading-relaxed text-gray-700 text-justify">
+                {item.description}
+              </p>
             </div>
+          ))}
+        </div>
 
-            <span className="inline-block mt-4 px-6 py-3 text-lg font-bold text-white bg-gradient-to-r from-orange-500 to-red-600 rounded-full shadow-lg">
-              ICACIT Conference '26
-            </span>
-
-            <p className="mt-6 text-[17px] leading-relaxed text-gray-700 text-justify">
-              {dates[forcedIndex].description}
-            </p>
-          </div>
+        {/* Desktop — table */}
+        <div className="hidden lg:block overflow-x-auto">
+          <table className="w-full border border-gray-300 text-left">
+            <thead className="bg-gray-50">
+              <tr>
+                <th className="border border-gray-300 px-6 py-4 text-sm font-bold text-gray-900 uppercase tracking-wider w-[18%]">
+                  Date
+                </th>
+                <th className="border border-gray-300 px-6 py-4 text-sm font-bold text-gray-900 uppercase tracking-wider w-[32%]">
+                  Event
+                </th>
+                <th className="border border-gray-300 px-6 py-4 text-sm font-bold text-gray-900 uppercase tracking-wider">
+                  Details
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {dates.map((item, index) => (
+                <tr
+                  key={index}
+                  className={index % 2 === 1 ? "bg-gray-50" : "bg-white"}
+                >
+                  <td className="border border-gray-300 px-6 py-5 align-top">
+                    <span className="font-semibold text-[#2295BA] text-[15px]">
+                      {item.date}
+                    </span>
+                  </td>
+                  <td className="border border-gray-300 px-6 py-5 align-top">
+                    <span className="font-bold text-gray-900 text-[16px] leading-snug">
+                      {item.event}
+                    </span>
+                  </td>
+                  <td className="border border-gray-300 px-6 py-5 align-top">
+                    <span className="text-[15px] leading-relaxed text-gray-700">
+                      {item.description}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
