@@ -7,75 +7,14 @@ import Footer from "./components/Footer";
 import LeftRightParaSectionLarge from "./components/LeftRightParaSectionLarge";
 import ConferenceTracks from "./components/ConferenceTracks";
 import ImportantDates from "./components/ImportantDates";
-import JournalCallToAction from "./components/JournalCallToAction";
 
 export default function Page() {
-  const tracks = [
-    {
-      title: "Computing",
-      description:
-        "This track explores core areas of computing including software development, algorithms, data structures, artificial intelligence, and emerging technologies. It emphasizes both theoretical foundations and practical applications that drive innovation across industries.",
-    },
-    {
-      title: "Information Technology for Business",
-      description:
-        "Focusing on the use of IT in organizational contexts, this track covers digital transformation, business process optimization, enterprise systems, and technological solutions that enhance productivity, efficiency, and decision-making in modern businesses.",
-    },
-    {
-      title: "Ethical Hacking & Network Security",
-      description:
-        "Addressing cybersecurity and risk management, this track covers network security, penetration testing, secure system design, threat analysis, and ethical hacking practices. Participants will explore strategies for protecting digital infrastructures and sensitive data.",
-    },
-  ];
-
-  const dates = [
-    {
-      event: "Call for Abstract / Extended Abstract Submission",
-      date: "Nov 10, 2025",
-      description:
-        "Authors are invited to submit their abstracts or extended abstracts for ICACIT 2026, following the conference submission guidelines.",
-    },
-    {
-      event: "Deadline for Abstract / Extended Abstract Submission",
-      date: "Dec 20, 2025",
-      description:
-        "Final date to submit abstracts or extended abstracts for consideration in ICACIT 2026.",
-    },
-    {
-      event: "Notification of Acceptance",
-      date: "Jan 20, 2026",
-      description:
-        "Authors will be notified regarding the acceptance status of their submitted abstracts or papers after peer review.",
-    },
-    {
-      event: "Submission of Camera-Ready Papers",
-      date: "Jan 30, 2026",
-      description:
-        "Accepted authors must submit their final camera-ready papers adhering to the formatting and submission guidelines.",
-    },
-    {
-      event: "Commencement of Registration for Conference",
-      date: "Feb 10, 2026",
-      description:
-        "Registration for ICACIT 2026 opens for all participants, including authors, presenters, and attendees.",
-    },
-    {
-      event: "Deadline for Conference Registration",
-      date: "Feb 20, 2026",
-      description:
-        "Last date to complete registration for ICACIT 2026 to participate in sessions, workshops, and networking events.",
-    },
-    {
-      event: "ICACIT Conference 2026",
-      date: "Mar 26, 2026",
-      description:
-        "The annual ICACIT Conference '26 commences, featuring keynote speeches, technical presentations, workshops, and opportunities for academic-industry collaboration.",
-    },
-  ];
+  const theme =
+    "Intelligent Computing for a Resilient Future: AI, Security and Sustainable Innovation";
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Fixed Navbar with smooth hide/show */}
+    <div className="min-h-screen bg-white">
+      {/* Fixed Navbar */}
       <div className="fixed top-0 left-0 right-0 z-50">
         <Navbar />
       </div>
@@ -84,23 +23,50 @@ export default function Page() {
       <main className="pt-10 md:pt-12 lg:pt-14">
         <Hero />
 
-        <JournalCallToAction />
-
+        {/* About Section */}
         <LeftRightParaSectionLarge
-          firstTitle="About ICACIT 2026"
+          firstTitle="About ICACIT 2027"
           firstDescription={`
-            ICACIT 2026 is the 2nd International Conference on Advanced Computing and Information Technology, organized by the School of Computing and Engineering at NIBM. 
-            This prominent conference gathers researchers, academics, industry professionals, and students to present original research, exchange ideas, and explore innovations in computing and information technology. 
-            The event addresses key areas including Software Engineering, IT for Business, Cybersecurity, Networking, and Multimedia Systems, covering both theoretical insights and practical applications. 
-            Scheduled as a hybrid conference on <strong class="text-[#2295BA]">February 26th, 2026</strong>, ICACIT 2026 will feature keynote speeches by distinguished experts, peer-reviewed technical paper presentations, interactive workshops, and networking sessions, fostering collaboration across academia and industry. 
-            Attendees will gain valuable perspectives on emerging trends, best practices, and transformative technologies shaping the global computing landscape.
+            The International Conference on Advanced Computing and Information Technology 2027 (ICACIT 2027) is organized by the School of Computing and Engineering at the National Institute of Business Management (NIBM), Sri Lanka. 
+            The conference brings together researchers, academics, industry professionals, and postgraduate and undergraduate students to present original research, exchange ideas, and discuss recent advances in computing and information technology. 
+            ICACIT 2027 will be held on <strong class="text-[#2295BA]">12th February 2027</strong> and will be conducted in physical, hybrid, and online modes to ensure broad participation. 
+            The program includes keynote addresses, peer-reviewed technical paper presentations, poster sessions, and networking opportunities that foster collaboration between academia and industry. 
+            Accepted papers will be published in the conference proceedings with an ISBN, and outstanding contributions will be recognized through Best Paper and Best Presenter awards.
           `}
-          tagline="Driving the Future Forward with Smart Solutions"
+          tagline={theme}
         />
 
-        <ConferenceTracks tracks={tracks} />
+        {/* Conference Tracks */}
+        <ConferenceTracks />
 
-        <ImportantDates dates={dates} />
+        {/* Keynote Speaker */}
+        <section className="bg-gray-50 border-b border-gray-200">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+              Keynote Speaker
+            </h2>
+            <div className="mt-4 w-20 h-1 bg-[#2295BA]" />
+
+            <div className="mt-8 border border-gray-200 bg-white p-8 lg:p-10">
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900">
+                Dr. P. Nandalal Weerasinghe
+              </h3>
+              <p className="mt-2 text-[16px] text-[#2295BA] font-semibold">
+                Governor, Central Bank of Sri Lanka
+              </p>
+              <p className="mt-6 text-[17px] leading-relaxed text-gray-700 text-justify">
+                Dr. P. Nandalal Weerasinghe will deliver the keynote address at
+                ICACIT 2027. The address will focus on the intersection of
+                intelligent computing, digital resilience, and sustainable
+                innovation in the national and global context, in line with the
+                conference theme.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Important Dates */}
+        <ImportantDates />
       </main>
 
       <Footer />
