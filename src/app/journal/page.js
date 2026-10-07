@@ -24,7 +24,7 @@ export default function Journal() {
           blackOpacity="bg-black/50"
         />
 
-        <JournalCountdown
+        {/* <JournalCountdown
           targetDate="2026-07-20T23:59:59"
           title="Full Paper Submission Deadline"
         />
@@ -34,7 +34,7 @@ export default function Journal() {
           buttonText="Submit via CMT"
         />
 
-        <JournalGuidelines />
+        <JournalGuidelines /> */}
 
         <JournalViewer />
       </main>
