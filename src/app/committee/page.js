@@ -50,9 +50,9 @@ function StaffCard({ name, position, image }) {
 export default function Committee() {
   const patrons = [
     {
-      name: "Dr. Gunathilake Tantirigama",
+      name: "Dr. Chinthake Perera",
       position: "Chairman, NIBM",
-      image: "/committee/cH.png",
+      image: "/committee/CG.png",
     },
     {
       name: "Dr. D M A Kulasooriya",
