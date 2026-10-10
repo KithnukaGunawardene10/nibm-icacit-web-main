@@ -40,7 +40,7 @@ export default function Page() {
         <ConferenceTracks />
 
         {/* Keynote Speaker */}
-        <section className="bg-gray-50 border-b border-gray-200">
+        {/* <section className="bg-gray-50 border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
               Keynote Speaker
@@ -63,7 +63,7 @@ export default function Page() {
               </p>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Important Dates */}
         <ImportantDates />
