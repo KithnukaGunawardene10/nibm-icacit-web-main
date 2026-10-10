@@ -15,9 +15,10 @@ export default function LeftRightParaSectionLarge({
   return (
     <section className="bg-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-        {/* Text block */}
-        {(firstTitle || firstDescription) && (
-          <div>
+        {/* Two-column: text left, flyer right */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          {/* Left — Text */}
+          <div className="lg:col-span-8">
             {firstTitle && (
               <h3 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
                 {firstTitle}
@@ -39,9 +40,23 @@ export default function LeftRightParaSectionLarge({
               />
             )}
           </div>
-        )}
 
-        {/* Logos row */}
+          {/* Right — Flyer */}
+          <div className="lg:col-span-4 flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-sm border border-gray-300">
+              <Image
+                src="/icacit-2027-flyer.webp"
+                alt="ICACIT 2027 Conference Flyer"
+                width={1200}
+                height={1600}
+                className="w-full h-auto"
+                sizes="(max-width: 768px) 90vw, 384px"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Logos row — bottom, horizontal */}
         <div className="flex flex-row flex-wrap items-center justify-center gap-8 sm:gap-12 lg:gap-16 pt-10 mt-10 border-t border-gray-200">
           {logos.map((logo, index) => (
             <div
