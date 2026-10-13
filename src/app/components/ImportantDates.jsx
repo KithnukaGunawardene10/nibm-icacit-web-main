@@ -9,6 +9,12 @@ const dates = [
       "The Microsoft CMT submission portal opens for ICACIT 2027. Authors are invited to submit abstracts and extended abstracts through the conference submission system.",
   },
   {
+    event: "Submission Deadline",
+    date: "30th November 2026",
+    description:
+      "Final date to submit abstracts and extended abstracts through the Microsoft CMT system. Submissions received after this date will not be considered for review.",
+  },
+  {
     event: "Notification of Acceptance",
     date: "5th January 2027",
     description:
