@@ -10,19 +10,21 @@ import JournalSubmission from "../components/JournalSubmission"; // new
 
 export default function Journal() {
   return (
+    
     <div className="min-h-screen bg-gray-50">
-      <div className="fixed top-0 left-0 right-0 z-50">
-        <Navbar />
-      </div>
-
-      <main className="pt-10 md:pt-12 lg:pt-14">
-        <HalfCoverImage
+      <HalfCoverImage
           title="Journal Information"
           description="Browse and view conference journals in a professional layout."
           image="/main-hero.jpg"
           height="30vh"
           blackOpacity="bg-black/50"
         />
+      <div className="fixed top-0 left-0 right-0 z-50">
+        <Navbar />
+      </div>
+
+      <main className="pt-10 md:pt-12 lg:pt-14">
+        
 
         {/* <JournalCountdown
           targetDate="2026-07-20T23:59:59"

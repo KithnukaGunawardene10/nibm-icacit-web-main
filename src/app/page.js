@@ -14,14 +14,15 @@ export default function Page() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Fixed Navbar */}
+       <Hero />
+       {/* Fixed Navbar */}
       <div className="fixed top-0 left-0 right-0 z-50">
         <Navbar />
       </div>
 
       {/* Main content starts below navbar */}
       <main className="pt-10 md:pt-12 lg:pt-14">
-        <Hero />
+       
 
         {/* About Section */}
         <LeftRightParaSectionLarge

@@ -1,48 +1,23 @@
-// app/layout.js
-import { Geist, Geist_Mono } from "next/font/google";
+// src/app/layout.js
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
 });
 
 export const metadata = {
-  title:
-    "ICACIT 2027 | International Conference on Advanced Computing and Information Technology",
+  title: "ICACIT 2027",
   description:
-    "The International Conference on Advanced Computing and Information Technology 2027 (ICACIT 2027), organized by the School of Computing and Engineering, NIBM. Theme: Intelligent Computing for a Resilient Future — AI, Security and Sustainable Innovation.",
-  keywords: [
-    "ICACIT 2027",
-    "NIBM",
-    "Advanced Computing",
-    "Information Technology",
-    "Conference",
-    "AI",
-    "Cybersecurity",
-    "Sustainable Innovation",
-  ],
-  authors: [{ name: "School of Computing and Engineering, NIBM" }],
-  openGraph: {
-    title:
-      "ICACIT 2027 | International Conference on Advanced Computing and Information Technology",
-    description:
-      "Intelligent Computing for a Resilient Future: AI, Security and Sustainable Innovation. 12th February 2027, Colombo, Sri Lanka.",
-    type: "website",
-  },
+    "International Conference on Advanced Computing and Information Technology 2027",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" className={inter.variable}>
+      <body className={`${inter.className} antialiased`}>
         {children}
       </body>
     </html>

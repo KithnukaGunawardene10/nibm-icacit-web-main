@@ -1,149 +1,179 @@
+// app/components/GalleryViewer.jsx
 "use client";
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import {
-  ChevronLeft,
-  ChevronRight,
-  ChevronDown,
-  ChevronRight as ArrowRight,
-} from "lucide-react";
-import { BASE_URL } from "../util/constant/common";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
-export default function GalleryViewer({ galleryData }) {
-  const [openYear, setOpenYear] = useState(galleryData[0].year);
-  const [selectedCategory, setSelectedCategory] = useState(
-    galleryData[0].conferences[0]
-  );
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [isClient, setIsClient] = useState(false);
+export default function GalleryViewer({ galleryData = [] }) {
+  const [lightbox, setLightbox] = useState(null);
 
-  useEffect(() => setIsClient(true), []);
-
-  const toggleYear = (year) => {
-    setOpenYear(openYear === year ? null : year);
+  const openLightbox = (images, index, title) => {
+    setLightbox({ images, index, title });
   };
 
-  const selectConf = (conf) => {
-    setSelectedCategory(conf);
-    setCurrentIndex(0);
+  const closeLightbox = () => setLightbox(null);
+
+  const prev = () => {
+    if (!lightbox) return;
+    setLightbox((s) => ({
+      ...s,
+      index: (s.index - 1 + s.images.length) % s.images.length,
+    }));
   };
 
-  const images = selectedCategory.images;
-  const total = images.length;
-
-  const goPrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? total - 1 : prev - 1));
+  const next = () => {
+    if (!lightbox) return;
+    setLightbox((s) => ({
+      ...s,
+      index: (s.index + 1) % s.images.length,
+    }));
   };
 
-  const goNext = () => {
-    setCurrentIndex((prev) => (prev === total - 1 ? 0 : prev + 1));
-  };
+  // Keyboard navigation in lightbox
+  useEffect(() => {
+    if (!lightbox) return;
+
+    const onKey = (e) => {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+    };
+
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightbox]);
+
+  // Lock body scroll when lightbox is open
+  useEffect(() => {
+    if (lightbox) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [lightbox]);
 
   return (
-    <div className="max-w-7xl mx-auto p-4 py-12">
-      <div className="flex flex-col md:flex-row gap-6">
-        {/* Mobile toggle */}
-        <button
-          className="md:hidden px-4 py-2 bg-[#2295BA] text-white font-semibold"
-          onClick={() => setSidebarOpen(!sidebarOpen)}
-        >
-          {sidebarOpen ? "Hide Gallery" : "Show Gallery"}
-        </button>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4">
+      <div className="space-y-12">
+        {galleryData.map((yearGroup) => (
+          <div key={yearGroup.year}>
+            <div className="mb-6">
+              <p className="text-xs font-semibold uppercase tracking-wider text-[#2295BA]">
+                {yearGroup.year}
+              </p>
+              <h3 className="mt-1 text-xl sm:text-2xl font-bold text-slate-900">
+                Conference photos
+              </h3>
+            </div>
 
-        {/* Sidebar */}
+            {yearGroup.conferences.map((conf, cIdx) => (
+              <div key={cIdx} className="mb-10 last:mb-0">
+                <div className="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+                  <div className="px-5 sm:px-6 py-4 border-b border-slate-100 bg-slate-50/70">
+                    <h4 className="text-sm sm:text-base font-semibold text-slate-800">
+                      {conf.title}
+                    </h4>
+                    <p className="mt-1 text-xs text-slate-500">
+                      {conf.images.length} photos
+                    </p>
+                  </div>
+
+                  <div className="p-4 sm:p-5">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+                      {conf.images.map((src, i) => (
+                        <button
+                          key={i}
+                          type="button"
+                          onClick={() =>
+                            openLightbox(conf.images, i, conf.title)
+                          }
+                          className="group relative aspect-[4/3] overflow-hidden rounded-xl bg-slate-100 focus:outline-none focus:ring-2 focus:ring-[#2295BA]/40"
+                        >
+                          <Image
+                            src={src}
+                            alt={`${conf.title} – photo ${i + 1}`}
+                            fill
+                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-colors duration-300" />
+                          <span className="absolute bottom-2 right-2 rounded-md bg-black/50 px-1.5 py-0.5 text-[10px] font-medium text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                            {i + 1}/{conf.images.length}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+
+      {/* Lightbox */}
+      {lightbox && (
         <div
-          className={`${
-            sidebarOpen ? "block" : "hidden"
-          } md:block md:w-1/4 space-y-4 overflow-y-auto max-h-[80vh] p-4 bg-white border border-gray-200 shadow`}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4"
+          onClick={closeLightbox}
         >
-          {galleryData.map((yearGroup) => (
-            <div key={yearGroup.year} className="border-b pb-2">
-              {/* Year header */}
-              <button
-                onClick={() => toggleYear(yearGroup.year)}
-                className="w-full flex items-center justify-between text-left cursor-pointer hover:bg-gray-50 p-2 transition-colors"
-              >
-                <h3 className="text-lg font-bold text-gray-900">
-                  {yearGroup.year} Gallery
-                </h3>
+          <button
+            type="button"
+            className="absolute top-4 right-4 rounded-full bg-white/10 p-2 text-white hover:bg-white/20 transition-colors"
+            onClick={closeLightbox}
+            aria-label="Close"
+          >
+            <X size={22} />
+          </button>
 
-                {openYear === yearGroup.year ? (
-                  <ChevronDown size={20} className="text-gray-500" />
-                ) : (
-                  <ArrowRight size={20} className="text-gray-500" />
-                )}
-              </button>
+          <button
+            type="button"
+            className="absolute left-3 sm:left-6 rounded-full bg-white/10 p-2 text-white hover:bg-white/20 transition-colors"
+            onClick={(e) => {
+              e.stopPropagation();
+              prev();
+            }}
+            aria-label="Previous"
+          >
+            <ChevronLeft size={24} />
+          </button>
 
-              {/* Conferences inside year */}
-              {openYear === yearGroup.year && (
-                <ul className="space-y-2 mt-3 pl-1">
-                  {yearGroup.conferences.map((conf, idx) => (
-                    <li
-                      key={idx}
-                      onClick={() => selectConf(conf)}
-                      className={`cursor-pointer p-3 border transition-colors ${
-                        selectedCategory.title === conf.title
-                          ? "bg-gray-300 text-white"
-                          : "bg-white border-gray-100 text-gray-800 hover:bg-gray-50"
-                      }`}
-                    >
-                      <p className="font-normal text-sm text-black">
-                        {conf.title}
-                      </p>
+          <button
+            type="button"
+            className="absolute right-3 sm:right-6 rounded-full bg-white/10 p-2 text-white hover:bg-white/20 transition-colors"
+            onClick={(e) => {
+              e.stopPropagation();
+              next();
+            }}
+            aria-label="Next"
+          >
+            <ChevronRight size={24} />
+          </button>
 
-                      <p className="text-sm text-black mt-1">
-                        {conf.images.length} photos
-                      </p>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
-        </div>
-
-        {/* Image Viewer */}
-        <div className="flex-1 bg-white border border-gray-200 shadow p-4 relative">
-          <h2 className="text-lg font-semibold text-center mb-4 text-black">
-            {selectedCategory.title}
-          </h2>
-
-          <div className="relative w-full h-[55vh] bg-transparent overflow-hidden">
-            {/* Image */}
-            {isClient && (
+          <div
+            className="relative max-w-5xl w-full max-h-[85vh] flex flex-col items-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative w-full h-[70vh]">
               <Image
-                src={`${BASE_URL}${images[currentIndex]}`}
-                alt="gallery-image"
+                src={lightbox.images[lightbox.index]}
+                alt={lightbox.title}
                 fill
-                className="object-contain p-4"
+                className="object-contain"
+                sizes="100vw"
+                priority
               />
-            )}
-
-            {/* Prev Arrow */}
-            <button
-              onClick={goPrev}
-              className="absolute left-3 top-1/2 -translate-y-1/2 p-3 cursor-pointer bg-gray-100 hover:bg-gray-200 shadow-md text-black"
-            >
-              <ChevronLeft size={24} />
-            </button>
-
-            {/* Next Arrow */}
-            <button
-              onClick={goNext}
-              className="absolute right-3 top-1/2 -translate-y-1/2 p-3 cursor-pointer bg-gray-100 hover:bg-gray-200 shadow-md text-black"
-            >
-              <ChevronRight size={24} />
-            </button>
-
-            {/* Counter */}
-            <div className="absolute bottom-3 right-3 bg-gray-800/70 text-white px-3 py-1 rounded text-sm">
-              {currentIndex + 1} / {total}
             </div>
+            <p className="mt-3 text-center text-sm text-white/80">
+              {lightbox.title} · {lightbox.index + 1} / {lightbox.images.length}
+            </p>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

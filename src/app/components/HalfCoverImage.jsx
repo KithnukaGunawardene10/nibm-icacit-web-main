@@ -5,35 +5,33 @@ import { BASE_URL } from "../util/constant/common";
 export default function HalfCoverImage({
   title,
   description,
-  image,
+  image = "/main-hero.jpg",
   height = "30vh",
-  blackOpacity = "bg-black/60",
+  blackOpacity = "bg-black/50",
 }) {
   return (
-    <section className="relative w-full" style={{ height }}>
-      {/* Background Image */}
+    <section
+      className="relative w-full overflow-hidden mb-0"
+      style={{ height, minHeight: height }}
+    >
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url('${BASE_URL}${image}')`,
         }}
       />
+      <div className={`absolute inset-0 ${blackOpacity}`} />
 
-      {/* Overlay */}
-      <div className={`absolute inset-0 ${blackOpacity} flex items-center`}>
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl">
-            {/* Title */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg text-left">
-              {title.split(" ")[0]}{" "}
-              <span className="text-[#2295BA] drop-shadow-md">
-                {title.split(" ").slice(1).join(" ")}
-              </span>
-            </h1>
-
-            {/* Description */}
+      <div className="relative z-10 h-full flex items-center">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 sm:pt-16">
+          <div className="max-w-3xl text-left">
+            {title && (
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
+                {title}
+              </h1>
+            )}
             {description && (
-              <p className="mt-2 sm:mt-3 text-base sm:text-lg md:text-xl text-white/90 drop-shadow text-left">
+              <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-white/85 leading-relaxed">
                 {description}
               </p>
             )}
