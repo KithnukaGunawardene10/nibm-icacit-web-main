@@ -55,7 +55,7 @@ export default function Hero() {
         style={{ backgroundImage: `url('${BASE_URL}/main-hero.jpg')` }}
         // style={{ backgroundImage: `url('/committee/halo.png')` }}*/
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/40 to-black/50" />
       </div>
 
       {/* Content */}
@@ -64,7 +64,7 @@ export default function Hero() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
             The International Conference on
             <br />
-            <span className="text-[#2295BA] drop-shadow-2xl">
+            <span className="text-white drop-shadow-2xl">
               Advanced Computing and Information Technology
             </span>
           </h1>
