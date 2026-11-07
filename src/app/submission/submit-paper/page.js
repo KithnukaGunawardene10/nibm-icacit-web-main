@@ -142,7 +142,7 @@ export default function SubmitPaper() {
               </Link>
 
               <a
-                href="https://cmt3.research.microsoft.com/NIBMICACIT2026"
+                href="https://cmt3.research.microsoft.com/ICACIT2027"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#2295BA] hover:bg-[#197a95] text-white font-semibold px-7 py-3.5 text-[15px] shadow-sm shadow-[#2295BA]/25 transition-colors"
