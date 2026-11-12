@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import LeftRightParaSectionLarge from "./components/LeftRightParaSectionLarge";
 import ConferenceTracks from "./components/ConferenceTracks";
 import ImportantDates from "./components/ImportantDates";
+import FloatingPromo from "./components/FloatingPromo";
 
 export default function Page() {
   const theme =
@@ -69,7 +70,7 @@ export default function Page() {
         {/* Important Dates */}
         <ImportantDates />
       </main>
-
+          <FloatingPromo />
       <Footer />
     </div>
   );

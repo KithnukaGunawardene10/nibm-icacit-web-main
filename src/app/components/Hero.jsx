@@ -76,8 +76,7 @@ export default function Hero() {
           
 
           <p className="mt-4 max-w-4xl mx-auto text-sm sm:text-base md:text-lg text-gray-200 italic leading-relaxed">
-            Theme: Intelligent Computing for a Resilient Future - AI, Security
-            and Sustainable Innovation
+            Theme: Intelligent Computing for a Resilient Future: AI, Security and Sustainable Innovation
           </p>
 
           {/* Countdown — React Bits Counter */}
