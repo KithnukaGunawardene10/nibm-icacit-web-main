@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function LeftRightParaSectionLarge({
   firstTitle = "ICACIT 2027",
   firstDescription,
-  tagline,
+  tagline = "Intelligent Computing for a Resilient Future - AI, Security and Sustainable Innovation",
 }) {
   const logos = [
     {
@@ -47,14 +47,8 @@ export default function LeftRightParaSectionLarge({
             </h2>
 
             {/* Theme / tagline */}
-            {tagline && (
-              <p className="mt-5 text-lg sm:text-xl font-semibold text-slate-800 leading-snug max-w-xl">
-                {tagline.split(/AI|Security|Sustainable/).map((part, i, arr) => {
-                  // Simple highlight for key words if present
-                  return <span key={i}>{part}</span>;
-                })}
-              </p>
-            )}
+            {tagline 
+            }
 
             {/* Accent line */}
             <div className="mt-5 w-16 h-1 rounded-full bg-[#2295BA]" />
