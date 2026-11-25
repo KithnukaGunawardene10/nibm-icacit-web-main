@@ -559,8 +559,8 @@ export default function AuthorGuidelines() {
                   pages) according to ICACIT 2027 formatting guidelines.
                 </p>
                 <a
-                  href="public/downloads/Extended-abstract-template-ICACIT2027_new.docx"
-                  download="Extended-abstract-template-ICACIT2027.docx"
+                  href="/downloads/Extended-abstract-template-ICACIT2027_new.docx"
+                  download="Extended-abstract-template-ICACIT2027_new.docx"
                   className="inline-flex items-center justify-center gap-2 w-full bg-[#2295BA] hover:bg-[#197a95] text-white font-medium py-2.5 px-4 rounded-xl text-sm transition-colors"
                 >
                   <svg
@@ -605,8 +605,8 @@ export default function AuthorGuidelines() {
                   body, and keywords) for ICACIT 2027.
                 </p>
                 <a
-                  href="public/downloads/icacit2027_abstract_template_new.docx"
-                  download="icacit2027_abstract_template.docx"
+                  href="/downloads/icacit2027_abstract_template_new.docx"
+                  download="icacit2027_abstract_template_new.docx"
                   className="inline-flex items-center justify-center gap-2 w-full bg-[#2295BA] hover:bg-[#197a95] text-white font-medium py-2.5 px-4 rounded-xl text-sm transition-colors"
                 >
                   <svg
