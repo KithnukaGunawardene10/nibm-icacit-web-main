@@ -207,7 +207,7 @@ export default function FloatingPromo() {
     target="_blank"
     rel="noopener noreferrer"
     className="group inline-flex items-center rounded-full border border-[#2295BA]/40 bg-slate-950/85 backdrop-blur-md p-1.5 shadow-lg shadow-[#2295BA]/15 transition-all duration-300 ease-out hover:border-[#2295BA]/70 hover:pr-2"
-  >
+  > 
     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#2295BA]/20 text-[#7dd3fc] ring-1 ring-[#2295BA]/40">
       <svg
         className="w-5 h-5"

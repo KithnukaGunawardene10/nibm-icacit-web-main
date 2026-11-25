@@ -8,6 +8,7 @@ import LeftRightParaSectionLarge from "./components/LeftRightParaSectionLarge";
 import ConferenceTracks from "./components/ConferenceTracks";
 import ImportantDates from "./components/ImportantDates";
 import FloatingPromo from "./components/FloatingPromo";
+import AbstractDeadlinePopup from "./components/AbstractDeadlinePopup";
 
 export default function Page() {
   const theme =
@@ -15,6 +16,8 @@ export default function Page() {
 
   return (
     <div className="min-h-screen bg-white">
+       <AbstractDeadlinePopup />
+
        <Hero />
        {/* Fixed Navbar */}
       <div className="fixed top-0 left-0 right-0 z-50">

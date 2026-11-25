@@ -215,10 +215,6 @@ export default function AuthorGuidelines() {
                         </li>
                       ))}
                     </ul>
-                    <p className="mt-5 text-sm text-gray-600">
-                      All sections must use <strong>Times New Roman 12</strong>{" "}
-                      with <strong>1.5 line spacing</strong>.
-                    </p>
                   </div>
                 </div>
               </div>
